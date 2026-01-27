@@ -8,6 +8,22 @@ public class tankcontroller : MonoBehaviour
 
     Vector2 move = Vector2.zero;
 
+    [SerializeField]
+    float rotationspeed = 20;
+
+    [SerializeField]
+    float speedofwalk= 1.4f;
+
+
+    public void Update()
+    {
+        Vector3 mv = Vector3.forward* speedofwalk * move.y;
+        transform.Translate(mv * Time.deltaTime);
+
+        float angle= rotationspeed* move.x;
+        transform.Rotate(Vector3.up, angle*Time.deltaTime);
+
+    }
     public void OnMove(InputValue valiue)
     { 
         Animator anim = GetComponent<Animator>();
@@ -23,7 +39,7 @@ public class tankcontroller : MonoBehaviour
             anim.SetBool("moving", false);
         }
     }
-    public void onjump(InputValue valiue)
+    public void OnJump(InputValue valiue)
     {
 
 
