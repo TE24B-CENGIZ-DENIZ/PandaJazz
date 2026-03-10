@@ -19,6 +19,8 @@ public class movecontroller : MonoBehaviour
 
     float velY = 0;
 
+    
+
     void Start()
     {
         cont = GetComponent<CharacterController>();
@@ -53,24 +55,31 @@ public class movecontroller : MonoBehaviour
 
     void OnJump(InputValue val)
     {
-        bool hashopped= false;
+        bool hashopped;
 
         if (cont.isGrounded)
         {
+             hashopped=true;
+            jmpforce=15;
             velY = jmpforce;
+           
+            
         }
         else
         {
             hashopped=true;
-            if(hashopped == true)
+            if(hashopped == true )
             {
                 velY=jmpforce;
-
-                hashopped=false;
+                if(val.isPressed){
+                    hashopped=false;
+                }
+                
             }
-            else
+            
+            if(hashopped==false)
             {
-                velY=0;
+                jmpforce=0;
             }
         }
        
