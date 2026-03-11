@@ -1,11 +1,13 @@
 using System.Diagnostics;
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class movecontroller : MonoBehaviour
 {
-    //  double jmp
+    
+
     [SerializeField]
     float walkspeed = 2f;
 
@@ -18,6 +20,12 @@ public class movecontroller : MonoBehaviour
     CharacterController cont;
 
     float velY = 0;
+
+    bool hasDoubleJumped;
+
+    // float hasJumpedTwice;
+
+  
 
     
 
@@ -55,37 +63,45 @@ public class movecontroller : MonoBehaviour
 
     void OnJump(InputValue val)
     {
-        bool hashopped;
-
+        
         if (cont.isGrounded)
         {
-             hashopped=true;
-            jmpforce=15;
+            hasDoubleJumped=false;
             velY = jmpforce;
+            // hasJumpedTwice=0;
            
             
         }
-        else
+        else if(cont.isGrounded== false) //else would also work i think
         {
-            hashopped=true;
-            if(hashopped == true )
+
+            // if(hasJumpedTwice== 0)
+            // {
+            //     velY=jmpforce;
+            // }
+
+            // if(val.isPressed)
+            // {
+            //     hasJumpedTwice= 1;
+            // }
+
+
+            if(hasDoubleJumped== false)
             {
                 velY=jmpforce;
-                if(val.isPressed){
-                    hashopped=false;
-                }
-                
+            }
+
+            if (val.isPressed)
+            {
+                hasDoubleJumped=true;
             }
             
-            if(hashopped==false)
-            {
-                jmpforce=0;
-            }
         }
-       
-
     }
 }
+
+
+
 
 // ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀    ⠀⣀⣠⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 // ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣆⠀⢀⣀⣀⣤⣤⣤⣦⣦⣤⣤⣄⣀⣀⠀⢠⣾⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
