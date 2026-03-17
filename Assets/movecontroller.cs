@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class movecontroller : MonoBehaviour
 {
-    
+
 
     [SerializeField]
     float walkspeed = 2f;
@@ -22,12 +22,13 @@ public class movecontroller : MonoBehaviour
     float velY = 0;
 
     bool hasDoubleJumped;
+    bool haswalljumped;
 
     // float hasJumpedTwice;
 
-  
 
-    
+
+
 
     void Start()
     {
@@ -63,41 +64,67 @@ public class movecontroller : MonoBehaviour
 
     void OnJump(InputValue val)
     {
-        
+
         if (cont.isGrounded)
         {
-            hasDoubleJumped=false;
+            hasDoubleJumped = false;
             velY = jmpforce;
             // hasJumpedTwice=0;
-           
-            
+
+
         }
-        else if(cont.isGrounded== false) //else would also work i think
+        else if (cont.isGrounded == false) //else would also work i think
         {
 
-            // if(hasJumpedTwice== 0)
-            // {
-            //     velY=jmpforce;
-            // }
+            //     // if(hasJumpedTwice== 0)
+            //     // {
+            //     //     velY=jmpforce;
+            //     // }
 
-            // if(val.isPressed)
-            // {
-            //     hasJumpedTwice= 1;
-            // }
+            //     // if(val.isPressed)
+            //     // {
+            //     //     hasJumpedTwice= 1;
+            //     // }
 
-
-            if(hasDoubleJumped== false)
+            if (hasDoubleJumped == false)
             {
-                velY=jmpforce;
+                velY = jmpforce;
             }
 
             if (val.isPressed)
             {
-                hasDoubleJumped=true;
+                hasDoubleJumped = true;
             }
-            
+
+
         }
+
+
     }
+
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "wall")
+        {
+            haswalljumped = false;
+            
+            if (haswalljumped == false)
+            {
+                velY = jmpforce;
+
+            }
+
+
+        }
+        else
+        {
+            haswalljumped = true;
+        }
+
+
+    }
+
 }
 
 

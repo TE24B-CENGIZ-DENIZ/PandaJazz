@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - cyl
+  - wall
   layers:
   - Default
   - TransparentFX
