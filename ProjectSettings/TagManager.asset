@@ -6,6 +6,7 @@ TagManager:
   tags:
   - cyl
   - wall
+  - shooter
   layers:
   - Default
   - TransparentFX
