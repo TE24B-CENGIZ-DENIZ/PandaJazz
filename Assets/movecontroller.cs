@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using NUnit.Framework;
 using Unity.VisualScripting;
@@ -22,7 +23,7 @@ public class movecontroller : MonoBehaviour
     float velY = 0;
 
     bool hasDoubleJumped;
-    bool haswalljumped;
+    
 
     // float hasJumpedTwice;
 
@@ -53,6 +54,9 @@ public class movecontroller : MonoBehaviour
         movement.y = velY;
 
         cont.Move(movement * Time.deltaTime);
+
+
+        bool collidedWithWall = Physics.Raycast();
 
     }
 
@@ -103,27 +107,10 @@ public class movecontroller : MonoBehaviour
     }
 
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "wall")
-        {
-            haswalljumped = false;
-            
-            if (haswalljumped == false)
-            {
-                velY = jmpforce;
-
-            }
+    //working on raycasts for wall jump
 
 
-        }
-        else
-        {
-            haswalljumped = true;
-        }
-
-
-    }
+    
 
 }
 
