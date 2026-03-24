@@ -8,7 +8,6 @@ using UnityEngine.InputSystem;
 public class movecontroller : MonoBehaviour
 {
 
-
     [SerializeField]
     float walkspeed = 2f;
 
@@ -23,6 +22,13 @@ public class movecontroller : MonoBehaviour
     float velY = 0;
 
     bool hasDoubleJumped;
+
+    [SerializeField]
+    float ClimbingPower= 100;
+
+    
+    RaycastHit HitTheWall;
+    
     
 
     // float hasJumpedTwice;
@@ -56,7 +62,14 @@ public class movecontroller : MonoBehaviour
         cont.Move(movement * Time.deltaTime);
 
 
-        bool collidedWithWall = Physics.Raycast();
+        if(Physics.Raycast(transform.position, movement, out HitTheWall, 1f)) //lowkey wall climb
+        {
+            if (HitTheWall.collider.CompareTag("wall"))
+            {
+                // print("yey wall");
+                velY= ClimbingPower;
+            }
+        }
 
     }
 
