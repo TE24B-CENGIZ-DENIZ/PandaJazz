@@ -24,16 +24,16 @@ public class movecontroller : MonoBehaviour
     bool hasDoubleJumped;
 
     [SerializeField]
-    float ClimbingPower= 100;
+    float ClimbingPower = 100;
 
-    
+
     RaycastHit HitTheWall;
-    
-    
+
+   
 
     // float hasJumpedTwice;
 
-
+    
 
 
 
@@ -62,14 +62,20 @@ public class movecontroller : MonoBehaviour
         cont.Move(movement * Time.deltaTime);
 
 
-        if(Physics.Raycast(transform.position, movement, out HitTheWall, 1f)) //lowkey wall climb
+        if (Physics.Raycast(transform.position, movement, out HitTheWall, 1f)) //lowkey wall climb
         {
             if (HitTheWall.collider.CompareTag("wall"))
             {
                 // print("yey wall");
-                velY= ClimbingPower;
+                velY = ClimbingPower;
+
+                
+                // make a V3 so that you can jump up and to the oppisite direction with a streinght
+
             }
         }
+
+       
 
     }
 
@@ -81,6 +87,7 @@ public class movecontroller : MonoBehaviour
 
     void OnJump(InputValue val)
     {
+        
 
         if (cont.isGrounded)
         {
@@ -116,6 +123,7 @@ public class movecontroller : MonoBehaviour
 
         }
 
+        
 
     }
 
@@ -123,7 +131,7 @@ public class movecontroller : MonoBehaviour
     //working on raycasts for wall jump
 
 
-    
+
 
 }
 
