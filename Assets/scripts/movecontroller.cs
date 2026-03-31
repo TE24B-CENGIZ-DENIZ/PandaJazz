@@ -29,6 +29,7 @@ public class movecontroller : MonoBehaviour
 
     RaycastHit HitTheWall;
 
+    RaycastHit Sword;
    
 
     // float hasJumpedTwice;
@@ -75,6 +76,14 @@ public class movecontroller : MonoBehaviour
             }
         }
 
+
+        if (Physics.Raycast(transform.position, movement, out Sword,1f))
+        {
+             if (Sword.collider.CompareTag("sword"))
+            {
+               print("sword ooh");
+            }
+        }
        
 
     }
