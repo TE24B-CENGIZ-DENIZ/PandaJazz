@@ -77,7 +77,7 @@ public class movecontroller : MonoBehaviour
         }
 
 
-        if (Physics.Raycast(transform.position, movement, out Sword,1f))
+        if (Physics.Raycast(transform.position, movement, out Sword,1f)) // sends a ray in front but therefore does't work well with small objects
         {
              if (Sword.collider.CompareTag("sword"))
             {

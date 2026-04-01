@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 3048619772541005737}
   - component: {fileID: 2815580194538237030}
   - component: {fileID: 2917742689911026053}
+  - component: {fileID: -5613840643092148717}
   m_Layer: 0
   m_Name: pew pew rod
   m_TagString: Untagged
@@ -271,8 +272,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44186ec6a20cec44bfc836092114a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 8371633015605233441, guid: 0f4db150fa661cf4ab2b626fbcfd8762, type: 3}
   timebetweenshot: 1
+--- !u!114 &-5613840643092148717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415823962750663706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f1647eb33d17f40bf8f9b6d833ae2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::bulletpewpew
+  wee: 10
 --- !u!1 &9102126439690396361
 GameObject:
   m_ObjectHideFlags: 0
