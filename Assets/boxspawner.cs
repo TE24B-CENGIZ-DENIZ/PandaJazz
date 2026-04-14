@@ -11,12 +11,12 @@ public class boxspawner : MonoBehaviour
 
     void Start()
     {
-        Vector3 position = new();
-        position.x = Random.Range(10, 30);
-        position.y = Random.Range(1, 4);
-        position.z = Random.Range(10, 30);
+        // Vector3 position = new();
+        // position.x = 0;
+        // position.y = 0;
+        // position.z = 0;
 
-        transform.position = position;
+        // transform.position = position;
     }
 
 
