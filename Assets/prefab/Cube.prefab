@@ -138,3 +138,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   EnemySpeed: 0.03
+  bulletprefab: {fileID: 8371633015605233441, guid: 0f4db150fa661cf4ab2b626fbcfd8762, type: 3}

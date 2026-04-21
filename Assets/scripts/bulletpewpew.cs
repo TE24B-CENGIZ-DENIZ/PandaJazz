@@ -14,7 +14,7 @@ public class bulletpewpew : MonoBehaviour
 
     void Update()
     {
-        // transform.Translate(Vector3.forward* Time.deltaTime*wee);
+         transform.Translate(Vector3.forward* Time.deltaTime*wee);
 
 
     }

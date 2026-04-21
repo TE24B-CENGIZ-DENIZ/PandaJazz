@@ -63,7 +63,7 @@ public class movecontroller : MonoBehaviour
         cont.Move(movement * Time.deltaTime);
 
 
-        if (Physics.Raycast(transform.position, movement, out HitTheWall, 1f)) //lowkey wall climb
+        if (Physics.Raycast(transform.position, movement, out HitTheWall, 1f)) //lowkey wall climb //explain 
         {
             if (HitTheWall.collider.CompareTag("wall"))
             {
