@@ -1,6 +1,8 @@
+using System;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
 {
@@ -21,9 +23,9 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
-
+        AudioSource speaker = GetComponent<AudioSource>();
+        speaker.Play();
     }
-
 
 
     void Update()
@@ -31,6 +33,11 @@ public class EnemyController : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, EnemySpeed);
         TimeToFire += Time.deltaTime;
+        transform.Rotate(0, .7f, 0);
+
+
+
+
 
 
 
@@ -40,9 +47,7 @@ public class EnemyController : MonoBehaviour
     {
         if (TimeToFire > TimeToWait)
         {
-            
-            
-            
+
             Instantiate(bulletprefab, transform.position, Quaternion.identity);
             TimeToFire = 0;
         }
